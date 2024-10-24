@@ -48,11 +48,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        /* Wyśrodkowanie canvas i jego poszerzenie */
         #canvas {
-            display: block; /* Umożliwia wyśrodkowanie */
-            margin: 20px auto; /* Wyśrodkowanie */
-            border: 1px solid black; /* Opcjonalnie, aby wyróżnić canvas */
+            display: block; 
+            margin: 20px auto; 
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -182,12 +181,10 @@ let animationFrameId;
 let isSorting = false;
 let currentIndex = 0;
 
-// Generowanie tablicy 200 losowych liczb
 function generateArray(size) {
     array = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
 }
 
-// Rysowanie tablicy na canvasie
 function drawArray(array) {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
@@ -200,7 +197,7 @@ function drawArray(array) {
     });
 }
 
-// Zatrzymywanie animacji
+
 function stopAnimation() {
     if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
@@ -210,12 +207,11 @@ function stopAnimation() {
     currentIndex = 0;
 }
 
-// Rozpoczynanie wizualizacji
 function startVisualization(algorithm) {
     if (isSorting) return;
     isSorting = true;
     stopAnimation();
-    generateArray(200); // Generowanie tablicy 200 elementów
+    generateArray(200);
     drawArray(array);
 
     const canvas = document.getElementById('canvas');
@@ -240,13 +236,11 @@ function startVisualization(algorithm) {
     }
 }
 
-// Implementacja sortowania przez wstawianie
 function insertionSort() {
-    currentIndex = 1; // Zaczynamy od drugiego elementu
+    currentIndex = 1; 
     animationFrameId = requestAnimationFrame(insertionSortStep);
 }
 
-// Krok sortowania przez wstawianie
 function insertionSortStep() {
     if (currentIndex >= array.length) {
         stopAnimation();
@@ -263,20 +257,17 @@ function insertionSortStep() {
     array[j + 1] = key;
     drawArray(array);
     
-    // Użycie setTimeout do spowolnienia animacji
     setTimeout(() => {
         currentIndex++;
         animationFrameId = requestAnimationFrame(insertionSortStep);
-    }, 150); // Opóźnienie na 150 ms
+    }, 150);
 }
 
-// Implementacja sortowania przez wybieranie
 function selectionSort() {
-    currentIndex = 0; // Zaczynamy od pierwszego elementu
+    currentIndex = 0; 
     animationFrameId = requestAnimationFrame(selectionSortStep);
 }
 
-// Krok sortowania przez wybieranie
 function selectionSortStep() {
     if (currentIndex >= array.length - 1) {
         stopAnimation();
@@ -293,20 +284,17 @@ function selectionSortStep() {
     [array[currentIndex], array[minIndex]] = [array[minIndex], array[currentIndex]];
     drawArray(array);
     
-    // Użycie setTimeout do spowolnienia animacji
     setTimeout(() => {
         currentIndex++;
         animationFrameId = requestAnimationFrame(selectionSortStep);
-    }, 150); // Opóźnienie na 150 ms
+    }, 150);
 }
 
-// Implementacja sortowania szybkiego
 function quickSort() {
     let stack = [{ left: 0, right: array.length - 1 }];
     animationFrameId = requestAnimationFrame(quickSortStep);
 }
 
-// Krok sortowania szybkiego
 function quickSortStep() {
     if (stack.length === 0) {
         stopAnimation();
@@ -323,7 +311,6 @@ function quickSortStep() {
     animationFrameId = requestAnimationFrame(quickSortStep);
 }
 
-// Funkcja partycjonująca w sortowaniu szybkim
 function partition(left, right) {
     const pivot = array[right];
     let i = left - 1;
@@ -337,7 +324,6 @@ function partition(left, right) {
     return i + 1;
 }
 
-// Implementacja sortowania przez scalanie
 function mergeSort() {
     const sort = (arr) => {
         if (arr.length <= 1) return arr;
@@ -376,21 +362,18 @@ function mergeSort() {
         array[index] = sortedArray[index];
         drawArray(array);
         
-        // Użycie setTimeout do spowolnienia animacji
         setTimeout(() => {
             index++;
             animationFrameId = requestAnimationFrame(mergeStep);
-        }, 150); // Opóźnienie na 150 ms
+        }, 150); 
     });
 }
 
-// Implementacja sortowania bąbelkowego
 function bubbleSort() {
-    currentIndex = 0; // Zaczynamy od pierwszego elementu
+    currentIndex = 0; 
     animationFrameId = requestAnimationFrame(bubbleSortStep);
 }
 
-// Krok sortowania bąbelkowego
 function bubbleSortStep() {
     if (currentIndex >= array.length - 1) {
         stopAnimation();
@@ -406,7 +389,6 @@ function bubbleSortStep() {
     }
     drawArray(array);
     
-    // Użycie setTimeout do spowolnienia animacji
     setTimeout(() => {
         currentIndex++;
         if (swapped) {
@@ -414,7 +396,7 @@ function bubbleSortStep() {
         } else {
             stopAnimation();
         }
-    }, 150); // Opóźnienie na 150 ms
+    }, 150);
 }
 
 </script>
