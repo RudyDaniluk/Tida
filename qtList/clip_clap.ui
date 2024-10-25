@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClipClapApp</class>
+ <widget class="QWidget" name="ClipClapApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>669</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Clip-Clap</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="topButtonsLayout">
+     <item>
+      <widget class="QPushButton" name="browseButton">
+       <property name="text">
+        <string>Przeglądaj katalog</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveButton">
+       <property name="text">
+        <string>Zapisz TXT</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="fileTable">
+     <row>
+      <property name="text">
+       <string>file1</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Ikona</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nazwa i Ścieżka Pliku</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="actionButtonsWidget" native="true">
+     <layout class="QHBoxLayout" name="actionButtonsLayout">
+      <item>
+       <widget class="QPushButton" name="useCopyButton">
+        <property name="text">
+         <string>Użyj/Kopiuj</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="openDirectoryButton">
+        <property name="text">
+         <string>Otwórz katalog</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeButton">
+        <property name="text">
+         <string>Usuń z listy</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
